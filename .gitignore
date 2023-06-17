@@ -33,8 +33,6 @@ pom.xml
 
 # Eclipse artifacts, including WTP generated manifests
 bin
-.classpath
-.project
 .settings
 .springBeans
 spring-*/src/main/java/META-INF/MANIFEST.MF
