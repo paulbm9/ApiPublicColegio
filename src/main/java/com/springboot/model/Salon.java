@@ -44,7 +44,7 @@ public class Salon {
 		matriculas.add(matricula);
 	}
 	
-	public void removePago(Matricula matricula) {
+	public void removeMatricula(Matricula matricula) {
 		matriculas.remove(matricula);
 	}
 

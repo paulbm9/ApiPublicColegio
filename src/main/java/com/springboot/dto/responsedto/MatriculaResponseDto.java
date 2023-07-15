@@ -4,7 +4,6 @@ public class MatriculaResponseDto {
 	private Long idmatricula;
 	private String fechamatricula;
 	private String cronograma;
-	private String fechaPago;
 	private String nombreEstudiante;
 	private String nombreSecretaria;
 	private String nombreSalon;
@@ -33,12 +32,6 @@ public class MatriculaResponseDto {
 	}
 	public void setCronograma(String cronograma) {
 		this.cronograma = cronograma;
-	}
-	public String getFechaPago() {
-		return fechaPago;
-	}
-	public void setFechaPago(String fechaPago) {
-		this.fechaPago = fechaPago;
 	}
 	public String getNombreSecretaria() {
 		return nombreSecretaria;

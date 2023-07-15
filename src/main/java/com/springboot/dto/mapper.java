@@ -5,8 +5,10 @@ import java.util.List;
 
 import com.springboot.dto.responsedto.MatriculaResponseDto;
 import com.springboot.dto.responsedto.PagoResponseDto;
+import com.springboot.dto.responsedto.PensionResponseDto;
 import com.springboot.model.Matricula;
 import com.springboot.model.Pago;
+import com.springboot.model.Pension;
 
 public class mapper {
 	
@@ -36,7 +38,6 @@ public class mapper {
         matriculaResponseDto.setFechamatricula(matricula.getFechamatricula());
         matriculaResponseDto.setCronograma(matricula.getCronograma());
         matriculaResponseDto.setNombreEstudiante(matricula.getPago().getEstudiante().getNombre()+ " "+matricula.getPago().getEstudiante().getApepat());
-        matriculaResponseDto.setFechaPago(matricula.getPago().getFechaoperacion());
         matriculaResponseDto.setNombreSecretaria(matricula.getSecretaria().getNombre()+" "+matricula.getSecretaria().getApe_pat());
         matriculaResponseDto.setNombreSalon(matricula.getSalon().getGrado()+" "+matricula.getSalon().getSeccion()+" "+matricula.getSalon().getAnio());
         return matriculaResponseDto;
@@ -48,6 +49,25 @@ public class mapper {
         	matriculaResponseDtos.add(matriculaToMatriculaResponseDto(matricula));
         }
         return matriculaResponseDtos;
+    }
+    
+    public static PensionResponseDto pensionToPensionResponseDto(Pension pension) {
+        PensionResponseDto pensionResponseDto = new PensionResponseDto();
+        pensionResponseDto.setId_pension(pension.getId_pension());
+        pensionResponseDto.setFecha_vencimiento(pension.getFecha_vencimiento());
+        pensionResponseDto.setFecha_operacion(pension.getFecha_operacion());
+        pensionResponseDto.setMonto(pension.getMonto());
+        pensionResponseDto.setEstado(pension.getEstado());
+        pensionResponseDto.setNombreEstudiante(pension.getMatricula().getPago().getEstudiante().getNombre()+ " "+pension.getMatricula().getPago().getEstudiante().getApepat());
+        return pensionResponseDto;
+    }
+
+    public static List<PensionResponseDto> pensionesToPensionResponseDto(List<Pension> pensiones) {
+        List<PensionResponseDto> pensionResponseDtos = new ArrayList<>();
+        for (Pension pension: pensiones) {
+        	pensionResponseDtos.add(pensionToPensionResponseDto(pension));
+        }
+        return pensionResponseDtos;
     }
 
 }

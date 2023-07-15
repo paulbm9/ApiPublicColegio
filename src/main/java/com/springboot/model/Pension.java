@@ -29,10 +29,10 @@ public class Pension {
 	  
 	
 	@Column
-	public Date fecha_vencimiento;
+	public String fecha_vencimiento;
 	
 	@Column
-	public Date fecha_operacion;
+	public String fecha_operacion;
 	
 	@Column
 	public double monto;
@@ -46,6 +46,46 @@ public class Pension {
 
 	public void setId_pension(long id_pension) {
 		this.id_pension = id_pension;
+	}
+
+	public Matricula getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
+	}
+
+	public String getFecha_vencimiento() {
+		return fecha_vencimiento;
+	}
+
+	public void setFecha_vencimiento(String fecha_vencimiento) {
+		this.fecha_vencimiento = fecha_vencimiento;
+	}
+
+	public String getFecha_operacion() {
+		return fecha_operacion;
+	}
+
+	public void setFecha_operacion(String fecha_operacion) {
+		this.fecha_operacion = fecha_operacion;
+	}
+
+	public double getMonto() {
+		return monto;
+	}
+
+	public void setMonto(double monto) {
+		this.monto = monto;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 	
 	
