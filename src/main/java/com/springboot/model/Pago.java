@@ -1,5 +1,8 @@
 package com.springboot.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -40,6 +44,17 @@ public class Pago {
 	@ManyToOne(cascade = CascadeType.ALL,fetch =FetchType.LAZY )
 	@JoinColumn(name = "idconcepto")
 	private Concepto concepto;
+	
+	@OneToMany(mappedBy = "pago", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Matricula> matriculas = new ArrayList<>();
+	
+	public void addMatricula(Matricula matricula) {
+		matriculas.add(matricula);
+	}
+	
+	public void removePago(Matricula matricula) {
+		matriculas.remove(matricula);
+	}
 	
 	
 

@@ -1,10 +1,16 @@
 package com.springboot.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -41,31 +47,22 @@ public class Secretaria {
 	@Column
 	private String estado;
 	
+	@OneToMany(mappedBy = "secretaria", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Matricula> matriculas = new ArrayList<>();
+	
+	public void addMatricula(Matricula matricula) {
+		matriculas.add(matricula);
+	}
+	
+	public void removePago(Matricula matricula) {
+		matriculas.remove(matricula);
+	}
 	
 	
 	public Secretaria() {
-		super();
 		
 	}
 
-	public Secretaria(long idsecretaria, String nombre, String ape_pat, String ape_mat, String fecha_nac,
-			String telefono, String correo, String fechade_ini_contrat, String fechade_fin_contrat, double sueldo,
-			String direccion, String distrito, String estado) {
-		super();
-		this.idsecretaria = idsecretaria;
-		this.nombre = nombre;
-		this.ape_pat = ape_pat;
-		this.ape_mat = ape_mat;
-		this.fecha_nac = fecha_nac;
-		this.telefono = telefono;
-		this.correo = correo;
-		this.fechade_ini_contrat = fechade_ini_contrat;
-		this.fechade_fin_contrat = fechade_fin_contrat;
-		this.sueldo = sueldo;
-		this.direccion = direccion;
-		this.distrito = distrito;
-		this.estado = estado;
-	}
 
 
 
