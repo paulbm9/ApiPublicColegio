@@ -36,10 +36,8 @@ public class Concepto {
 		pagos.remove(pago);
 	}
 	
-
-	public Concepto(String nomconcepto, List<Pago> pagos) {
-		this.nomconcepto = nomconcepto;
-		this.pagos = pagos;
+	public Concepto() {
+		
 	}
 
 	public long getIdconcepto() {

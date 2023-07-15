@@ -11,7 +11,12 @@ public class mapper {
 	public static PagoResponseDto pagoToPagoResponseDto(Pago pago) {
         PagoResponseDto pagoResponseDto = new PagoResponseDto();
         pagoResponseDto.setIdpago(pago.getIdpago());
+        pagoResponseDto.setFechaoperacion(pago.getFechaoperacion());
+        pagoResponseDto.setMonto(pago.getMonto());
         pagoResponseDto.setNombreCajero(pago.getCajero().getNombre());
+        pagoResponseDto.setNombreApoderado(pago.getApoderado().getNombre()+" "+pago.getApoderado().getApepat());
+        pagoResponseDto.setNombreEstudiante(pago.getEstudiante().getNombre()+" "+pago.getEstudiante().getApepat());
+        pagoResponseDto.setNombreConcepto(pago.getConcepto().getNomconcepto());
         return pagoResponseDto;
     }
 

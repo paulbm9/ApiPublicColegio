@@ -55,21 +55,10 @@ public class Estudiante {
 	}
 
 
-	public Estudiante(String nombre, String apepat, String apemat, String fechadenac, String direccion, String distrito,
-			String telefono, String correo, Apoderado apoderado, List<Pago> pagos) {
-		super();
-		this.nombre = nombre;
-		this.apepat = apepat;
-		this.apemat = apemat;
-		this.fechadenac = fechadenac;
-		this.direccion = direccion;
-		this.distrito = distrito;
-		this.telefono = telefono;
-		this.correo = correo;
-		this.apoderado = apoderado;
-		this.pagos = pagos;
+    public Estudiante() {
+		// TODO Auto-generated constructor stub
 	}
-
+	
 	public long getIdestudiante() {
 		return idestudiante;
 	}

@@ -16,7 +16,7 @@ import com.springboot.service.PagoService;
 @RequestMapping("/pago")
 public class PagoController {
 	@Autowired
-	private PagoService pagoService;
+	public PagoService pagoService;
 	
 	 @GetMapping("/getAll")
 	    public ResponseEntity<List<PagoResponseDto>> getPagos() {

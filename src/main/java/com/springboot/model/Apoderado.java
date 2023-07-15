@@ -42,29 +42,16 @@ public class Apoderado {
 	@OneToMany(mappedBy = "apoderado", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Pago> pagos = new ArrayList<>();
 	
+	public Apoderado() {
+		// Default constructor
+	}
+	
 	public void addPago(Pago pago) {
 		pagos.add(pago);
 	}
 	
 	public void removePago(Pago pago) {
 		pagos.remove(pago);
-	}
-	
-	
-
-	public Apoderado(String nombre, String apepat, String apemat, String fechanac, String telefono, String correo,
-			String direccion, String distrito, String ocupacion, List<Pago> pagos) {
-		super();
-		this.nombre = nombre;
-		this.apepat = apepat;
-		this.apemat = apemat;
-		this.fechanac = fechanac;
-		this.telefono = telefono;
-		this.correo = correo;
-		this.direccion = direccion;
-		this.distrito = distrito;
-		this.ocupacion = ocupacion;
-		this.pagos = pagos;
 	}
 
 	public long getIdapoderado() {
