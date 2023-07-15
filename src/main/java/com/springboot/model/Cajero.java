@@ -1,10 +1,16 @@
 package com.springboot.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -42,6 +48,40 @@ public class Cajero {
 	private String distrito;
 	@Column
 	private String observaciones;
+	
+	@OneToMany(mappedBy = "cajero", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Pago> pagos = new ArrayList<>();
+	
+	public void addPago(Pago pago) {
+		pagos.add(pago);
+	}
+	
+	public void removePago(Pago pago) {
+		pagos.remove(pago);
+	}
+	
+	
+	
+	public Cajero(String nombre, String apepat, String apemat, String fechadenac, String telefono, String correo,
+			String fechadeinicontrat, String fechadefincontrat, double sueldo, String estado, String direccion,
+			String distrito, String observaciones, List<Pago> pagos) {
+		super();
+		this.nombre = nombre;
+		this.apepat = apepat;
+		this.apemat = apemat;
+		this.fechadenac = fechadenac;
+		this.telefono = telefono;
+		this.correo = correo;
+		this.fechadeinicontrat = fechadeinicontrat;
+		this.fechadefincontrat = fechadefincontrat;
+		this.sueldo = sueldo;
+		this.estado = estado;
+		this.direccion = direccion;
+		this.distrito = distrito;
+		this.observaciones = observaciones;
+		this.pagos = pagos;
+	}
+
 	//Constructores
 	public Cajero() {
 		

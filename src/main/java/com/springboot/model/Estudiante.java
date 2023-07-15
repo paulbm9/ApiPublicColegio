@@ -1,5 +1,9 @@
 package com.springboot.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -37,6 +42,33 @@ public class Estudiante {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idapoderado")
 	private Apoderado apoderado;
+	
+	@OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Pago> pagos = new ArrayList<>();
+	
+	public void addPago(Pago pago) {
+		pagos.add(pago);
+	}
+	
+	public void removePago(Pago pago) {
+		pagos.remove(pago);
+	}
+
+
+	public Estudiante(String nombre, String apepat, String apemat, String fechadenac, String direccion, String distrito,
+			String telefono, String correo, Apoderado apoderado, List<Pago> pagos) {
+		super();
+		this.nombre = nombre;
+		this.apepat = apepat;
+		this.apemat = apemat;
+		this.fechadenac = fechadenac;
+		this.direccion = direccion;
+		this.distrito = distrito;
+		this.telefono = telefono;
+		this.correo = correo;
+		this.apoderado = apoderado;
+		this.pagos = pagos;
+	}
 
 	public long getIdestudiante() {
 		return idestudiante;

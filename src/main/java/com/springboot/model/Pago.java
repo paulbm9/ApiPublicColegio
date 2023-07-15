@@ -1,5 +1,6 @@
 package com.springboot.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,19 +25,19 @@ public class Pago {
 	@Column
 	private double monto;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(name = "idcajero")
 	private Cajero cajero;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(name = "idapoderado")
 	private Apoderado apoderado;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(name = "idestudiante")
 	private Estudiante estudiante;
 	
-	@ManyToOne(fetch =FetchType.LAZY )
+	@ManyToOne(cascade = CascadeType.ALL,fetch =FetchType.LAZY )
 	@JoinColumn(name = "idconcepto")
 	private Concepto concepto;
 	

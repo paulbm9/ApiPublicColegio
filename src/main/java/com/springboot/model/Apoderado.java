@@ -1,10 +1,16 @@
 package com.springboot.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,6 +38,35 @@ public class Apoderado {
 	private String distrito;
 	@Column
 	private String ocupacion;
+	
+	@OneToMany(mappedBy = "apoderado", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Pago> pagos = new ArrayList<>();
+	
+	public void addPago(Pago pago) {
+		pagos.add(pago);
+	}
+	
+	public void removePago(Pago pago) {
+		pagos.remove(pago);
+	}
+	
+	
+
+	public Apoderado(String nombre, String apepat, String apemat, String fechanac, String telefono, String correo,
+			String direccion, String distrito, String ocupacion, List<Pago> pagos) {
+		super();
+		this.nombre = nombre;
+		this.apepat = apepat;
+		this.apemat = apemat;
+		this.fechanac = fechanac;
+		this.telefono = telefono;
+		this.correo = correo;
+		this.direccion = direccion;
+		this.distrito = distrito;
+		this.ocupacion = ocupacion;
+		this.pagos = pagos;
+	}
+
 	public long getIdapoderado() {
 		return idapoderado;
 	}
